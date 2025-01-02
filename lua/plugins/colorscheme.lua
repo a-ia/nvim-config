@@ -19,7 +19,7 @@ return {
         sumiInk3 = "#3A3A3A", -- modified
         sumiInk4 = "#3A3A3A", -- modified
         sumiInk5 = "#3A3A3A", -- modified
-        sumiInk6 = "#3A3A3A", -- modified
+        sumiInk6 = "#F9E7C0", -- modified
 
         -- Popup and Floats
         waveBlue1 = "#e8e8f2", -- modified
