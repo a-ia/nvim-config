@@ -31,3 +31,4 @@ require("core.keymaps")
 -- Set Node.js host path explicitly
 vim.g.node_host_prog = '/usr/bin/yarn'
 
+
