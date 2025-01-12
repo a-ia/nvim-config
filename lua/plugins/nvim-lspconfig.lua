@@ -84,6 +84,14 @@ return {
       },
     }
 
+    lspconfig.gdscript.setup({
+      cmd = { "godot", "--lsp" }, -- Path to the Godot binary
+      filetypes = { "gdscript" },
+      root_dir = lspconfig.util.root_pattern("project.godot"),
+      on_attach = lsp_attach,
+      capabilities = lsp_capabilities,
+    })
+
     -- Globally configure all LSP floating preview popups (like hover, signature help, etc)
     local open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)

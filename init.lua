@@ -29,6 +29,21 @@ require("core.options")
 require("core.keymaps")
 
 -- Set Node.js host path explicitly
-vim.g.node_host_prog = '/usr/bin/yarn'
+vim.g.node_host_prog = '/usr/bin/node'
 
+-- Ensure nvim recognizes .gd files as gdscript
+vim.filetype.add({
+  extension = {
+    gd = "gdscript",
+  },
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    local projectfile = vim.fn.getcwd() .. '/project.godot'
+    if vim.fn.filereadable(projectfile) == 1 and vim.fn.serverlist()[1] == nil then
+        vim.fn.serverstart('/tmp/godothost')
+    end
+  end
+})
 
