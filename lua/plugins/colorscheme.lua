@@ -22,8 +22,8 @@ return {
         sumiInk6 = "#F9E7C0", -- modified
 
         -- Popup and Floats
-        waveBlue1 = "#e8e8f2", -- modified
-        waveBlue2 = "#e8e8f2", -- modified
+        waveBlue1 = "#3A3A3A", -- modified
+        waveBlue2 = "#3A3A3A", -- modified
 
         -- Diff and Git
         winterGreen = "#2B3328",
