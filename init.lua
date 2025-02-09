@@ -15,14 +15,13 @@ vim.opt.rtp:prepend(lazypath)
 -- Set mapleader before lazy.nvim initialization
 vim.g.mapleader = " "
 
--- Initialize lazy with dynamic loading of anything in the plugins directory
+-- Initialize lazy.nvim with UI settings
 require("lazy").setup("plugins", {
-   change_detection = {
-    enabled = true, -- Automatically check for config file changes and reload the UI
-    notify = false, -- Turn off notifications for plugin changes
+  change_detection = {
+    enabled = true,
+    notify = false,
   },
 })
-
 
 -- Load core configurations
 require("core.options")
@@ -46,4 +45,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
   end
 })
-

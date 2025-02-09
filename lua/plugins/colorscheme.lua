@@ -1,73 +1,80 @@
 return {
-  -- https://github.com/rebelot/kanagawa.nvim
-  'rebelot/kanagawa.nvim', -- You can replace this with your favorite colorscheme
-  lazy = false, -- We want the colorscheme to load immediately when starting Neovim
-  priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
+  'rebelot/kanagawa.nvim',
+  lazy = false,
+  priority = 1000,
   opts = {
-    -- Replace this with your scheme-specific settings or remove to use the defaults
     transparent = true,
     background = {
-      -- light = "lotus",
-      dark = "wave", -- "wave, dragon"
+      dark = "wave",
     },
     colors = {
       palette = {
         -- Background colors
-        sumiInk0 = "#3A3A3A", -- modified
-        sumiInk1 = "#3A3A3A", -- modified
-        sumiInk2 = "#3A3A3A", -- modified
-        sumiInk3 = "#3A3A3A", -- modified
-        sumiInk4 = "#3A3A3A", -- modified
-        sumiInk5 = "#3A3A3A", -- modified
-        sumiInk6 = "#F9E7C0", -- modified
+        sumiInk0 = "#EBEDEF",
+        sumiInk1 = "#EBEDEF",
+        sumiInk2 = "#EBEDEF",
+        sumiInk3 = "#EBEDEF",
+        sumiInk4 = "#EBEDEF",
+        sumiInk5 = "#EBEDEF",
+        sumiInk6 = "#555555",
 
         -- Popup and Floats
-        waveBlue1 = "#3A3A3A", -- modified
-        waveBlue2 = "#3A3A3A", -- modified
+        waveBlue1 = "#dcdddf",
+        waveBlue2 = "#dcdddf",
 
         -- Diff and Git
-        winterGreen = "#2B3328",
-        winterYellow = "#49443C",
-        winterRed = "#43242B",
-        winterBlue = "#252535",
-        autumnGreen = "#76A56A", -- modified
+        winterGreen = "#ff2adc",
+        winterYellow = "#b7fb11",
+        winterRed = "#fe0000",
+        winterBlue = "#c1fefe",
+        autumnGreen = "#7ae121",
         autumnRed = "#C34043",
-        autumnYellow = "#DCA561",
+        autumnYellow = "#c84495",
 
-        -- Diag
-        samuraiRed = "#E82424",
+        -- Diagnostics
+        samuraiRed = "#fe0000",
         roninYellow = "#FF9E3B",
-        waveAqua1 = "#7E9CD8", -- modified
-        dragonBlue = "#7FB4CA", -- modified
+        waveAqua1 = "#11d7e8",
+        dragonBlue = "#0256ff",
 
         -- Foreground and Comments
-        oldWhite = "#ffffff",
-        fujiWhite = "#F9E7C0", -- modified
-        fujiGray = "#ffaaee", -- modified
-        oniViolet = "#BFA3E6", -- modified
-        oniViolet2 = "#BCACDB", -- modified
-        crystalBlue = "#8CABFF", -- modified
-        springViolet1 = "#938AA9",
-        springViolet2 = "#9CABCA",
-        springBlue = "#7FC4EF", -- modified
-        waveAqua2 = "#EC9EC0", -- modified
+        oldWhite = "#000131",
+        fujiWhite = "#350927",
+        fujiGray = "#350927",
+        oniViolet = "#371666",
+        oniViolet2 = "#371666",
+        crystalBlue = "#111c4a",
+        springViolet1 = "#4c00b7",
+        springViolet2 = "#4c00b7",
+        springBlue = "#007878",
+        waveAqua2 = "#000e78",
 
-        springGreen = "#98BB6C",
-        boatYellow1 = "#938056",
-        boatYellow2 = "#C0A36E",
-        carpYellow = "#FFEE99", -- modified
+        springGreen = "#00a5a7",
+        boatYellow1 = "#a4ac91",
+        boatYellow2 = "#a4ac91",
+        carpYellow = "#a3c946",
 
-        sakuraPink = "#D27E99",
-        waveRed = "#E46876",
-        peachRed = "#FF5D62",
-        surimiOrange = "#FFAA44", -- modified
-        katanaGray = "#717C7C",
+        sakuraPink = "#fc67b4",
+        waveRed = "#d9171b",
+        peachRed = "#ff0f51",
+        surimiOrange = "#ee4e17",
+        katanaGray = "#484950",
       },
     },
   },
   config = function(_, opts)
-    require('kanagawa').setup(opts) -- Replace this with your favorite colorscheme
-    vim.cmd("colorscheme kanagawa") -- Replace this with your favorite colorscheme
+    require('kanagawa').setup(opts)
+    vim.cmd("colorscheme kanagawa")
+
+    -- Apply Lazy UI and floating window colors after the colorscheme loads
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      pattern = "*",
+      callback = function()
+        vim.api.nvim_set_hl(0, "LazyNormal", { bg = "#EBEDEF", fg = "#000000" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#EBEDEF", fg = "#000000" })
+        vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#EBEDEF", fg = "#000000" })
+      end,
+    })
 
     -- Custom diff colors
     vim.cmd([[
