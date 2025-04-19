@@ -15,6 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Set mapleader before lazy.nvim initialization
 vim.g.mapleader = " "
 
+vim.opt.termguicolors = true
+
 -- Initialize lazy.nvim with UI settings
 require("lazy").setup("plugins", {
   change_detection = {

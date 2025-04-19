@@ -26,7 +26,7 @@ opt.cursorline = true
 
 -- Appearance
 opt.termguicolors = true
-opt.background = "dark"
+opt.background = "light"
 opt.signcolumn = "yes"
 vim.diagnostic.config {
   float = { border = "rounded" }, -- add border to diagnostic popups
@@ -53,3 +53,4 @@ opt.foldlevel = 20
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()" -- Utilize Treesitter folds
 
+vim.opt.termguicolors = true
