@@ -30,3 +30,8 @@ The `init.lua` file contains a clean **lazy.nvim** bootstrap with dynamic plugin
   - Java
   - Markdown
 
+## Showcase
+![image](https://github.com/user-attachments/assets/3990d490-1e77-41f1-87b5-a59fa08fe73a)
+![image](https://github.com/user-attachments/assets/d8e01699-77ba-4d96-9f2b-54263032a998)
+
+
